@@ -83,7 +83,7 @@ def skimit(abstract_lines, model):
 app = Flask(__name__)
 
 print(os.listdir("model/"))
-model = keras.models.load_model("model/PubMed_Model_20k.keras", custom_objects={"KerasLayer": hub.KerasLayer})
+model = keras.models.load_model("model/PubMed", custom_objects={"KerasLayer": hub.KerasLayer})
 
 # Scrape abstract from PubMed link
 def scrape_from_link(link):
