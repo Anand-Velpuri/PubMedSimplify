@@ -7,7 +7,6 @@ import tf_keras as keras
 import tensorflow_hub as hub
 import tensorflow_text as text
 from spacy.lang.en import English
-import os
 
 
 
@@ -82,8 +81,8 @@ def skimit(abstract_lines, model):
 
 app = Flask(__name__)
 
-print(os.listdir("model/"))
-model = keras.models.load_model("model/PubMed", custom_objects={"KerasLayer": hub.KerasLayer})
+model = keras.models.load_model("./model/PubMed_Model_20k.keras", custom_objects={"KerasLayer": hub.KerasLayer})
+model.save("model/PubMed")
 
 # Scrape abstract from PubMed link
 def scrape_from_link(link):
@@ -129,3 +128,5 @@ def predict():
     output = skimit(abstract_lines, model)
     return jsonify(output)
 
+if __name__ == '__main__':
+    app.run(debug=True) 
