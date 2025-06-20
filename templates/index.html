@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-gray-50 dark:bg-gray-900">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PubMedSimplify</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/styles.css">
+    <script src="https://unpkg.com/feather-icons"></script>
+</head>
+<body class="min-h-screen flex flex-col transition-colors duration-300">
+    <!-- Hero Section -->
+    <section class="flex flex-col items-center justify-center py-16">
+        <h1 class="text-4xl md:text-6xl font-bold mb-4 text-center text-gray-900 dark:text-white">PubMedSimplify</h1>
+        <p class="text-lg md:text-2xl mb-8 text-center text-gray-600 dark:text-gray-300">Paste or upload a PubMed abstract to get a structured, easy-to-read summary.</p>
+        <form id="abstractForm" class="w-full max-w-xl bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 space-y-4">
+            <input type="url" id="pubmedLinkInput" name="pubmed_link" placeholder="Paste PubMed abstract link (e.g. https://pubmed.ncbi.nlm.nih.gov/12345678/)" class="w-full p-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-400 transition" pattern="https://pubmed.ncbi.nlm.nih.gov/[0-9]+/?" autocomplete="off">
+            <div class="text-xs text-gray-500 dark:text-gray-400 mb-2">Paste a PubMed abstract link above, or use the options below.</div>
+            <textarea id="abstractInput" name="abstract_text" rows="7" placeholder="Paste PubMed abstract here..." class="w-full p-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-400 transition"></textarea>
+            <div id="dropArea" class="w-full mb-2 p-6 border-2 border-dashed border-blue-400 rounded-lg text-center text-blue-600 dark:text-blue-300 bg-blue-50 dark:bg-blue-900 cursor-pointer transition hover:bg-blue-100 dark:hover:bg-blue-800">
+                <i data-feather="file-text" class="inline-block"></i>
+                <span class="ml-2">Drag & drop a .txt file here</span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <label class="flex items-center cursor-pointer">
+                    <input type="file" name="file" id="fileInput" accept=".txt" class="hidden">
+                    <span class="inline-flex items-center px-3 py-2 bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 rounded-lg hover:bg-blue-200 dark:hover:bg-blue-800 transition">
+                        <i data-feather="upload"></i> <span class="ml-2">Upload .txt</span>
+                    </span>
+                </label>
+                <button type="button" id="clearBtn" class="px-4 py-2 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded-lg font-semibold hover:bg-gray-300 dark:hover:bg-gray-600 transition">Clear</button>
+                <button type="submit" class="ml-auto px-6 py-2 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition">Summarize</button>
+            </div>
+        </form>
+        <div id="loader" class="mt-6 hidden">
+            <svg class="animate-spin h-8 w-8 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path>
+            </svg>
+        </div>
+    </section>
+    <!-- Output Section -->
+    <section id="outputSection" class="max-w-2xl mx-auto mt-8 space-y-6"></section>
+    <!-- Footer -->
+    <footer class="mt-auto py-4 bg-gray-100 dark:bg-gray-900 text-center text-gray-500 dark:text-gray-400 relative">
+        <a href="https://github.com/anand-velpuri" target="_blank" class="inline-flex items-center hover:underline mr-4">
+            <i data-feather="github"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/anand-velpuri/" target="_blank" class="inline-flex items-center hover:underline">
+            <i data-feather="linkedin"></i>
+        </a>
+        <button id="scrollTopBtn" class="fixed bottom-8 right-8 bg-blue-600 text-white p-3 rounded-full shadow-lg hidden transition-transform transform hover:scale-110">
+            <i data-feather="arrow-up"></i>
+        </button>
+    </footer>
+    <script src="/static/scripts.js"></script>
+    <script>feather.replace()</script>
+</body>
+</html> 

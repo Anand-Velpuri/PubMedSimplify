@@ -1,0 +1,36 @@
+# Core web and backend
+Flask==3.0.3
+Werkzeug==3.0.3
+requests==2.32.3
+
+# TensorFlow ecosystem
+tensorflow==2.18.0
+tensorflow-hub==0.16.1
+tensorflow-text==2.18.1
+tf-keras==2.18.0
+h5py>=3.11.0,<4.0.0
+numpy==1.26.4
+protobuf==4.25.3
+
+# NLP and ML
+spacy==3.7.4
+beautifulsoup4==4.12.3
+
+# SpaCy English model (install via script, not pip)
+# en-core-web-sm==3.7.1
+
+# Utilities
+certifi==2024.6.2
+charset-normalizer==3.3.2
+idna==3.7
+urllib3==2.2.1
+packaging==24.0
+matplotlib==3.8.4
+
+# Optional: TensorBoard for monitoring
+# tensorboard==2.16.2
+
+# Remove dev-only or unnecessary packages for production
+# absl-py, astunparse, flatbuffers, gast, google-pasta, grpcio, libclang, Markdown, markdown-it-py, MarkupSafe, ml-dtypes, namex, opt_einsum, optree, pyasn1-modules, six, tensorboard-data-server, tensorboard-plugin-wit, termcolor, typing_extensions, wrapt
+
+gunicorn==21.2.0
